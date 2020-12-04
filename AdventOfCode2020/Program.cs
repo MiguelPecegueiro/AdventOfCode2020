@@ -6,7 +6,7 @@ namespace AdventOfCode2020
     {
         static void Main(string[] args)
         {
-            Start:
+        Start:
             Console.WriteLine("Select day (1-25) and Part(1-2) (day.part) : ");
             string input = Console.ReadLine();
             try
@@ -19,7 +19,7 @@ namespace AdventOfCode2020
                     case "2.2": Day2.Part2(); break;
                     case "3.1": Day3.Part1(); break;
                     case "3.2": Day3.Part2(); break;
-                    case "4.1": Day1.Part1(); break;
+                    case "4.1": Day4.Part1(); break;
                     case "4.2": Day1.Part1(); break;
                 }
 
