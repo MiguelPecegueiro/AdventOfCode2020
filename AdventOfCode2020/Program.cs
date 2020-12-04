@@ -7,6 +7,8 @@ namespace AdventOfCode2020
         static void Main(string[] args)
         {
         Start:
+            Day4.Part2();
+            return;
             Console.WriteLine("Select day (1-25) and Part(1-2) (day.part) : ");
             string input = Console.ReadLine();
             try
