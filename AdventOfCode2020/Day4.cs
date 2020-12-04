@@ -66,17 +66,16 @@ namespace AdventOfCode2020
                     {
                         try
                         {
-                            var parameteres = s.Split(':')[1];
-                            var method = s.Split(':')[0];
-                            Cred[s.Split(':')[0]] = ValidateField(method,parameteres);
-
+                                var parameteres = s.Split(':')[1];
+                                var method = s.Split(':')[0];
+                                Cred[s.Split(':')[0]] = ValidateField(method, parameteres);
                         }
                         catch {}
                     }
-
                     if (!Cred.ContainsValue(false))
                     {
                         validpassports++;
+
                     }
                     passportline = "";
                     if (line == null) { break; }
@@ -103,7 +102,6 @@ namespace AdventOfCode2020
             Credentials.Add("hcl", false);
             Credentials.Add("ecl", false);
             Credentials.Add("pid", false);
-            //Credentials.Add("cid", false);
             return Credentials;
         }
 
@@ -118,13 +116,13 @@ namespace AdventOfCode2020
                 case "hcl": return hcl(input);
                 case "ecl": return ecl(input);
                 case "pid": return pid(input);
-                default: return false;
+                default: return true;
             }
         }
 
         public static bool byr(string input)
         {
-            Regex regbyr = new Regex(@"\b(19[2-9][0-9]|200[0-2])\b");
+            Regex regbyr = new Regex(@"^\b(19[2-9][0-9]|200[0-2])\b$");
             if(regbyr.IsMatch(input))
             {
                 return true;
@@ -133,7 +131,7 @@ namespace AdventOfCode2020
         }
         public static bool iyr(string input)
         {
-            Regex regiyr = new Regex(@"\b(201[0-9]|2020)\b");
+            Regex regiyr = new Regex(@"^\b(201[0-9]|2020)\b$");
             if (regiyr.IsMatch(input))
             {
                 return true;
@@ -142,7 +140,7 @@ namespace AdventOfCode2020
         }
         public static bool eyr(string input)
         {
-            Regex regeyr = new Regex(@"\b(202[0-9]|2030)\b");
+            Regex regeyr = new Regex(@"^\b(202[0-9]|2030)\b$");
             if (regeyr.IsMatch(input))
             {
                 return true;
@@ -151,7 +149,7 @@ namespace AdventOfCode2020
         }
         public static bool hgt(string input)
         {
-            Regex reghgt = new Regex(@"\b(1[5-8][0-9]cm|19[0-3]cm|59in|6[0-9]in|7[0-6]in)\b");
+            Regex reghgt = new Regex(@"^\b(1[5-8][0-9]cm|19[0-3]cm|59in|6[0-9]in|7[0-6]in)\b$");
             if (reghgt.IsMatch(input))
             {
                 return true;
@@ -160,7 +158,7 @@ namespace AdventOfCode2020
         }
         public static bool hcl(string input)
         {
-            Regex reghcl = new Regex(@"\b([a-f0-9]{6})\b");
+            Regex reghcl = new Regex(@"^#[a-f0-9]{6}$");
             if (reghcl.IsMatch(input))
             {
                 return true;
@@ -169,7 +167,7 @@ namespace AdventOfCode2020
         }
         public static bool ecl(string input)
         {
-            Regex reghcl = new Regex(@"\b(amb|blu|brn|gry|grn|hzl|oth)\b");
+            Regex reghcl = new Regex(@"^\b(amb|blu|brn|gry|grn|hzl|oth)\b$");
             if (reghcl.IsMatch(input))
             {
                 return true;
@@ -178,7 +176,7 @@ namespace AdventOfCode2020
         }
         public static bool pid(string input)
         {
-            Regex reghcl = new Regex(@"\b([0-9]{9})\b");
+            Regex reghcl = new Regex(@"^\b([0-9]{9})\b$");
             if (reghcl.IsMatch(input))
             {
                 return true;
